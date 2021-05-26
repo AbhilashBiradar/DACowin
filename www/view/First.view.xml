@@ -1,0 +1,115 @@
+<mvc:View height="100%" controllerName="ABB.Cowin.controller.First" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="COWIN-Alerts">
+					<content>
+						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Start Date" partOfCurrentVariant="true" visibleInFilterBar="true">
+									<fb:control>
+										<DatePicker id="DP1" placeholder="Select Date" class="sapUiSmallMarginBottom"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="District" labelTooltip="" mandatory="true" partOfCurrentVariant="true"
+									visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox id="IDdist" type="Text" items="{/districts}">
+											<items>
+												<core:Item key="{district_id}" text="{district_name}"/>
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Age" labelTooltip="" mandatory="false" partOfCurrentVariant="true"
+									visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox id="Age">
+											<items>
+												<core:Item key="18" text="18"/>
+												<core:Item key="45" text="45"/>
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="Dose" labelTooltip="" mandatory="false" partOfCurrentVariant="true"
+									visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox id="Dose">
+											<items>
+												<core:Item key="1" text="1"/>
+												<core:Item key="2" text="2"/>
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="Fee" labelTooltip="" mandatory="false" partOfCurrentVariant="true"
+									visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox id="Fee">
+											<items>
+												<core:Item key="Any" text="Any"/>
+												<core:Item key="Paid" text="Paid"/>
+												<core:Item key="Free" text="Free"/>
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+						<Table id="idProductsTable" inset="false" items="{ path: '/list', sorter: { path: 'Name' } }">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Date"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Vaccine"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Center"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Age"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Dose1"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Dose2"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Pincode"/>
+								</Column>
+								
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Fee"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										
+										<Text text="{Date}"/>
+										<Text text="{Vaccine}"/>
+										<Text text="{Name}"/>
+										<Text text="{AgeGroup}"/>
+										<ObjectNumber number="{Avilable1}" unit="{WeightUnit}"
+											state="Success"/>
+										<ObjectNumber number="{Avilable2}" unit="{WeightUnit}"
+											state="Success"/>
+										<Text text="{Pincode}"/>
+										<Text text="{fee_type}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
